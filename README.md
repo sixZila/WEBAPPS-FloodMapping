@@ -8,7 +8,10 @@ TO DO:
 - Learn PHP (For DB)
 - Google Maps Directions API
 - Google Maps API
-- JavaScript
+- JavaScript (JQuery)
 - UI Improvements
 
-Lets try to add directions to the map and a few "floods" before the first sprint (3rd-4th week of Feb)
+FOR SPRINT 1:
+- Show Map
+- Display Directions using the 2 text fields
+- add a few floods
