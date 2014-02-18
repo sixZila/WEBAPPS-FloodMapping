@@ -17,7 +17,11 @@ FOR SPRINT 1:
 - add a few floods
 
 API LINKS:
+----------
 GEOCODING - MAKES USE OF STRINGS THEN TRANSLATES IT TO COORDINATES (LONG AND LAT)
+
 - https://developers.google.com/maps/documentation/geocoding/
+
 MAPS API - MAIN API THAT WE'RE USING
+
 - https://developers.google.com/maps/documentation/javascript/tutorial
