@@ -8,21 +8,71 @@ body {
 	padding: 0
 }
 
-ul {
-	margin:0;
-	padding:5px;
-	background-color: #ccc;
+.navbar {
+	margin: 0;
+	padding-left: 20px;
+	background-color: #65d965;
 }
 
-li {
+.elements {
 	display: inline;
 }
 
-smallSpace{
+.small-space{
 	margin: 5px;
+	display:inline;
+}
+
+#searchRoute {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+	font-family: Roboto;
+	font-size: 13px;
+	font-weight: 300;
+}
+#searchRoute:hover {
+    border: 1px solid #aaa;
+    background: #eee;
 }
 
 #map-canvas {
 	height: 100%
+}
+
+#start, #end {
+    background-color: #fff;
+	width: 200px;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+}
+
+#start:focus. #end:focus {
+	border-color: #ccc;
+}
+
+@media screen and (max-width: 520px) {
+	.elements {
+		display: block;
+		width: 100%;
+	}
+	
+	.navbar {
+		padding: 0;
+	}
+	
+	.small-space{
+		margin: 5px;
+		display:inline;
+	}
+	#searchRoute {
+		width: 100%;
+	}
+	
+	#start, #end {
+		width:100%;
+	}
+
+	
 }
 
