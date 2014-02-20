@@ -7,32 +7,36 @@ body {
 	margin: 0;
 	padding: 0
 }
+li {
+	display: inline;
+}
+
+li img{
+	width: 20px;
+	height: 20px;
+}
 
 .navbar {
 	margin: 0;
 	padding-left: 20px;
-	background-color: #65d965;
-}
-
-.elements {
-	display: inline;
+	background-color: #F2F1ED;
+	border-bottom: thin solid #333;
 }
 
 .small-space{
 	margin: 5px;
-	display:inline;
 }
 
 #searchRoute {
-    border: 1px solid #ccc;
+    border: 1px solid #333;
     background: #f9f9f9;
 	font-family: Roboto;
-	font-size: 13px;
+	font-size: 15px;
 	font-weight: 300;
 }
 #searchRoute:hover {
     border: 1px solid #aaa;
-    background: #eee;
+    background: #efefef;
 }
 
 #map-canvas {
@@ -43,12 +47,13 @@ body {
     background-color: #fff;
 	width: 200px;
 	font-family: Roboto;
-	font-size: 15px;
+	font-size: 17px;
 	font-weight: 300;
+	color: 333;
 }
 
 #start:focus. #end:focus {
-	border-color: #ccc;
+	border-color: #333;
 }
 
 @media screen and (max-width: 520px) {
@@ -72,7 +77,34 @@ body {
 	#start, #end {
 		width:100%;
 	}
-
+	li img{
+		display:none;
+	}
+}
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px)
+and (max-device-width : 568px) {
+	.elements {
+		display: block;
+		width: 100%;
+	}
+	.navbar {
+		padding: 0;
+	}
+	.small-space{
+		margin: 5px;
+		display:inline;
+	}
 	
+	#searchRoute {
+		width: 100%;
+		font-size: 50px;
+	}
+	
+	#start, #end {
+		font-size: 50px;
+		width:100%;
+	}
 }
 
