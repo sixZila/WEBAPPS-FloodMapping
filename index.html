@@ -3,16 +3,16 @@
 		<title>
 			Flood Mapping
 		</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="Assets/style.css">
 	</head>
 	
 	<body>
 		<ul>
-			<li><input type="text" id="from"></li>
+			<li><input type="text" id="start" placeholder="Starting Location"></li>
 			<li><smallSpace></li>
-			<li><input type="text" id="destination">
+			<li><input type="text" id="end" placeholder="Destination">
 			</li>
-			<li><button type="button" id="searchRoute">Search</button></li>
+			<li><button type="button" id="searchRoute" onclick="calcRoute();">Search</button></li>
 		</ul>
 		
 		<div id="map-canvas"/>
@@ -20,7 +20,7 @@
 		<script type="text/javascript"
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBva4xAGdYL_-6mErjAjhZySvHxLpNVh6A&sensor=false">
 		</script>
-		<script src="script.js">
+		<script src="Assets/script.js">
 		</script>
 	</body>
 </html>
