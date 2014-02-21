@@ -27,6 +27,11 @@ li img{
 	margin: 5px;
 }
 
+.flood {
+	max-width: 150px; 
+	height: auto
+}
+
 #searchRoute {
     border: 1px solid #333;
     background: #f9f9f9;
@@ -85,6 +90,9 @@ li img{
 and (min-device-width : 320px) 
 and (max-device-width : 480px)
 and (max-device-width : 568px) {
+	li img{
+		display:none;
+	}
 	.elements {
 		display: block;
 		width: 100%;
