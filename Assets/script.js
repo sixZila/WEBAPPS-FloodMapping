@@ -25,7 +25,9 @@ function initialize() {
 					{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},
 					{"featureType":"administrative","stylers":[{"visibility":"on"},{"lightness":33}]},
 					{"featureType":"road"},{"featureType":"poi.park","elementType":"labels","stylers":
-					[{"visibility":"on"},{"lightness":20}]},{},{"featureType":"road","stylers":[{"lightness":10}]}]
+					[{"visibility":"on"},{"lightness":20}]},{},{"featureType":"road","stylers":[{"lightness":10}]}],
+		panControl: false,
+		streetViewControl: false,
 	};
 	var start = /** @type {HTMLInputElement} */(document.getElementById('start'));
 	var destination = /** @type {HTMLInputElement} */(document.getElementById('end'));
