@@ -63,7 +63,7 @@ li img{
 	border-color: #333;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 550px) {
 	.elements {
 		display: block;
 		width: 100%;
@@ -74,8 +74,7 @@ li img{
 	}
 	
 	.small-space{
-		margin: 5px;
-		display:inline;
+		display:none;
 	}
 	
 	#map-canvas {
@@ -89,21 +88,24 @@ li img{
 	#start, #end {
 		width:100%;
 	}
+	
 	li img{
 		display:none;
 	}
 }
+
 @media only screen 
 and (min-device-width : 320px) 
-and (max-device-width : 480px)
 and (max-device-width : 568px) {
 	li img{
 		display:none;
 	}
+	
 	.elements {
 		display: block;
 		width: 100%;
 	}
+	
 	.navbar {
 		padding: 0;
 	}
@@ -115,11 +117,6 @@ and (max-device-width : 568px) {
 	#searchRoute {
 		width: 100%;
 		font-size: 50px;
-	}
-	
-	#map-canvas {
-		width: 100%;
-		height: calc( 100% - 227px );
 	}
 	
 	#start, #end {
