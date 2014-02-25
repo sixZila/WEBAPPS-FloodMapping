@@ -80,8 +80,10 @@ li img{
 	}
 	
 	#map-canvas {
+		position: absolute;
 		width: 100%;
-		height: calc( 100% - 95px );
+		top: 95px;
+		bottom: 0;
 	}
 	#searchRoute {
 		width: 100%;
