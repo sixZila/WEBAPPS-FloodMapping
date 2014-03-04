@@ -38,6 +38,44 @@ function initialize() {
 	
 	directionsDisplay.setMap(map);
 	setMarkers(map, floods);
+	
+	for(var layer in layers) {
+		
+	}	
+	var kmzLayer0 = new google.maps.KmlLayer({
+			url: "http://nababaha.appspot.com/static/marikina-ondoy.KMZ"
+	});
+	kmzLayer0.setMap(map);
+	
+	var kmzLayer1 = new google.maps.KmlLayer({
+			url: "http://nababaha.appspot.com/static/manila0-ondoy.KMZ"
+	});
+	kmzLayer1.setMap(map);
+	
+	var kmzLayer2 = new google.maps.KmlLayer({
+			url: "http://nababaha.appspot.com/static/manila1-ondoy.KMZ",
+	});
+	kmzLayer2.setMap(map);
+	
+	var kmzLayer3 = new google.maps.KmlLayer({
+			url: "http://nababaha.appspot.com/static/manila2-ondoy.KMZ",
+	});
+	kmzLayer3.setMap(map);
+	
+	var kmzLayer4 = new google.maps.KmlLayer({
+			url: "http://nababaha.appspot.com/static/manila3-ondoy.KMZ",
+	});
+	kmzLayer4.setMap(map);
+	
+	var kmzLayer5 = new google.maps.KmlLayer({
+			url: "http://nababaha.appspot.com/static/manila4-ondoy.KMZ",
+	});
+	kmzLayer5.setMap(map);
+	
+	var kmzLayer6 = new google.maps.KmlLayer({
+			url: "http://nababaha.appspot.com/static/manila_gm.KMZ"
+	});
+	kmzLayer6.setMap(map);
 }
 
 function calcRoute() {
