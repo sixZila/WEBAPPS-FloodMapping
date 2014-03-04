@@ -4,7 +4,7 @@ var map;
 var markers = new Array();
 var infowindows = new Array();
 var floods = [
-  ['SM Sucat', 14.484768, 120.993840, '<h1>SM Sucat</h1> <a href="/Assets/floodimg/SMSucat.jpg" data-lightbox="/Assets/floodimg/SMSucat.jpg"><img src="/Assets/floodimg/SMSucat.jpg" class="flood"></a>'],
+  ['SM Sucat', 14.484768, 120.993840, '<h1>SM Sucat</h1> <a href="Assets/floodimg/SMSucat.jpg" data-lightbox="Assets/floodimg/SMSucat.jpg"><img src="Assets/floodimg/SMSucat.jpg" class="flood"></a>'],
   ['DLSU', 14.5643, 120.9937, ''],
   ['Vito Cruz', 14.562623, 120.995103, ''],
   ['Olivarez College', 14.479513, 120.997657, ''],
@@ -22,10 +22,11 @@ function initialize() {
 	};
 	var start = /** @type {HTMLInputElement} */(document.getElementById('start'));
 	var destination = /** @type {HTMLInputElement} */(document.getElementById('end'));
-	  
+
 	var bounds = new google.maps.LatLngBounds(
 		new google.maps.LatLng(15.00, 119.00),
-		new google.maps.LatLng(13.00, 121.00));
+		new google.maps.LatLng(13.00, 121.00)
+	);
 	
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 	
@@ -43,16 +44,16 @@ function calcRoute() {
 	var start = document.getElementById("start").value;
 	var end = document.getElementById("end").value;
   
-  var request = {
-    origin:start,
-    destination:end,
-    travelMode: google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(result, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(result);
-    }
-  });
+	var request = {
+		origin:start,
+		destination:end,
+		travelMode: google.maps.TravelMode.DRIVING
+	};
+	directionsService.route(request, function(result, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+			directionsDisplay.setDirections(result);
+		}
+	});
 }
 
 function setMarkers(map, locations) {
@@ -82,15 +83,13 @@ function setMarkers(map, locations) {
 		
 		infowindows.push(infowindow);
         markers.push(marker);
-  }
-}
-
-function readfile(f) {
-    var fr = new FileReader();
-	fr.onload = function(e) {
-		alert(fr.result);
-	};
-	fr.readAsText(f);
+	}
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+google.maps.event.addDomListener(window, "resize", function() {
+	var center = map.getCenter();
+	google.maps.event.trigger(map, "resize");
+	map.setCenter(center); 
+});
