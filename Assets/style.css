@@ -66,8 +66,8 @@ li img{
 	border-color: #333;
 }
 
-#addFlood {
-	display: none;
+#rightSide {
+	float: right;
 }
 
 @media screen and (max-width: 550px) {
