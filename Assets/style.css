@@ -66,10 +66,6 @@ li img{
 	border-color: #333;
 }
 
-#rightSide {
-	float: right;
-}
-
 @media screen and (max-width: 550px) {
 	.elements {
 		display: block;
