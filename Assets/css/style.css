@@ -21,6 +21,19 @@ input {
 	display: inline;
 }
 
+.nav-button {
+	display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  padding: 0 8px;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
+}
+
 #directions-panel {
 	position: absolute;
 	display: none;
