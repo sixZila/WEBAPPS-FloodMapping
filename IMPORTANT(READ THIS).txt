@@ -1,0 +1,1 @@
+Guys, to be able to access the database, you need to install xampp and import the database that I included here. This is just temporary because I only rushed it, I'll fix this next sprint. Let's just demo tomorrow on my machine.
