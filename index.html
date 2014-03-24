@@ -5,6 +5,9 @@
 		</title>
 		<link type="text/css" href="Assets/style.css" rel="stylesheet">
 		<link href="Assets/lightbox.css" rel="stylesheet" />
+		<script src="Assets/javascript/jquery-1.11.0.min.js"></script>
+		<script language="JavaScript" src="Assets/dropdown.js" type="text/javascript"></script>
+		<link href="Assets/dropdown.css" rel="stylesheet" type="text/css" media="all" />
 	</head>
 	
 	<body>
@@ -15,10 +18,28 @@
 			<li class="small-space"></li>
 			<li class="elements"><input type="text" id="end" placeholder="Destination"></li>
 			<li class="elements"><button type="button" id="searchRoute" onclick="calcRoute();">Search</button></li>
-
 			<div id="rightSide">
-				<!-- RIGHTSIDE ELEMENTS-->
-				<!-- CROWDSOURCING ELEMENT + ABOUT PAGE -->
+			
+			<nav>
+			<ul>
+                <li id="login">
+                        <a id="login-trigger" href="#">
+                                Upload Photo 
+                        </a>
+                        <div id="login-content">
+                                <form>
+                                        <fieldset id="inputs">
+                                                <input id="username" type="email" name="Email" placeholder="Location" required>
+                                                <input id="password" type="password" name="Password" placeholder="Intensity" required>
+                                        </fieldset>
+                                        <fieldset id="actions">
+                                                <input type="submit" id="submit" value="Upload">            
+                                        </fieldset>
+                                </form>
+                        </div>
+                </li>
+			</ul>
+			</nav>
 				<img src="Assets/img/arrow.png" onClick="">
 				<!--
 					<div id="addFlood">
