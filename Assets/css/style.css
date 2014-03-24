@@ -7,6 +7,11 @@
 	height: 30px;
 }
 
+.navbar-right {
+	float: left;
+	margin: 0;
+}
+
 #wrapper {
 	position: relative; 
 }
