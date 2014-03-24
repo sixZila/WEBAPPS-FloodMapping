@@ -33,29 +33,31 @@
                     <li><input type="text" id="start" placeholder="Starting Location"></li>
                     <li><img src="Assets/img/to.png" class = "toImg"></li>
                     <li><input type="text" id="end" placeholder="Destination"></li>
-                    <li><button type="button" onclick="calcRoute();">Search</button></li>
+                    <li><button type="button" onclick="calcRoute();" class="searchDestination">Search</button></li>
                 </ul>
-                <ul class="nav navbar-right">
-                    <li><button type="button" onclick="toggleDrawer();" id="dPanel">Directions</button></li>
-                </ul>
+
                 <nav>         
                     <ul>
-                    <li id="login">
-                        <a id="login-trigger" href="#">
-                                Upload Photo 
-                        </a>
-                        <div id="login-content">
+                        <li id="login">
+                            <a id="login-trigger" href="#">Upload Photo </a>
+                            <div id="login-content">
                                 <form>
-                                        <fieldset id="inputs">
-                                                <input id="username" type="email" name="Email" placeholder="Location" required>
-                                                <input id="password" type="password" name="Password" placeholder="Intensity" required>
-                                        </fieldset>
-                                        <fieldset id="actions">
-                                                <input type="submit" id="submit" value="Upload">            
-                                        </fieldset>
+                                    <fieldset id="inputs">
+                                        <input id="username" type="email" name="Email" placeholder="Location" required>
+                                        <input id="password" type="password" name="Password" placeholder="Intensity" required>
+                                    </fieldset>
+                                    <fieldset id="actions">
+                                        <input type="submit" id="submit" value="Upload">            
+                                    </fieldset>
                                 </form>
-                        </div>
-                    </li>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <nav>         
+                    <ul>
+                        <li id="login">
+                            <a id="login-trigger" href="javascript:toggleDrawer()">Directions</a>
                     </ul>
                 </nav>
             </div><!--/.nav-collapse -->

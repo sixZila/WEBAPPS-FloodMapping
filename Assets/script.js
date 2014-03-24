@@ -98,7 +98,8 @@ function calcRoute() {
 	});
 
 	gotDirections = true;
-	toggleDrawer();
+	if (window.innerWidth > 767)
+		toggleDrawer();
 }
 
 function setMarkers(map, locations) {

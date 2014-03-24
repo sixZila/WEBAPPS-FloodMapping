@@ -1,3 +1,16 @@
+@media (max-width: 767px) {
+  nav{
+    display: none;
+  }
+
+  nav li{
+    display: none;
+  }
+}
+
+nav {
+  float: right;
+}
 nav ul {
   margin: 0;
   padding: 0;
@@ -12,7 +25,7 @@ nav ul {
 }
 
 nav li {
-  float: left;
+  float: right;
 }
 
 nav #login {
@@ -21,7 +34,6 @@ nav #login {
   -webkit-box-shadow: 1px 0 0 #fff;
   box-shadow: 1px 0 0 #fff;
 }
-nav #login {position:fixed; right:0; top:10%;}
 nav #login-trigger,
 nav #signup a {
   display: inline-block;

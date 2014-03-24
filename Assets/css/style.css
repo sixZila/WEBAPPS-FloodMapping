@@ -8,15 +8,16 @@
 }
 
 .navbar-right {
-	float: left;
+	float: right;
 	margin: 0;
+	display: inline;
 }
 
 #directions-panel {
 	position: absolute;
 	display: none;
-    top: 91px;
-    bottom: 60px;
+    top: 121px;
+    bottom: 90px;
     right: 0;
     float: right;
     width: 390px;
@@ -49,11 +50,25 @@
 
 
 
-@media max-width 767px {
+@media (max-width: 767px) {
 	#map-canvas {
-	position: absolute;
-	width: 100%;
-	top: 31px;
-	bottom: 0;
-}
+		position: absolute;
+		width: 100%;
+		top: 50px;
+		bottom: 0;
+	}
+	.toImg{
+		display: none;
+	}
+	.searchDestination {
+		width: 100%;
+		font-size: 24;
+	}
+	input {
+		font-size: 36;
+		width: 100%;
+	}
+	#directions-panel {
+		display: none;
+	}
 }
