@@ -13,15 +13,16 @@ var floods = [
 ];
 
 var drawerIsOpen = false;
+var gotDirections = false;
  
 function toggleDrawer() {
-	if(drawerIsOpen) {
-		drawerIsOpen = false;
-		$("#directions-panel").css("display", "none");
-	}
-	else {
+	if(!drawerIsOpen && gotDirections) {
 		drawerIsOpen = true;
 		$("#directions-panel").css("display", "inline");
+	}
+	else {
+		drawerIsOpen = false;
+		$("#directions-panel").css("display", "none");
 	}
 }	
 
@@ -95,6 +96,9 @@ function calcRoute() {
 			directionsDisplay.setDirections(result);
 		}
 	});
+
+	gotDirections = true;
+	toggleDrawer();
 }
 
 function setMarkers(map, locations) {
