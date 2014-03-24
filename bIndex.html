@@ -27,8 +27,15 @@
                 <span class="icon-bar"></span>
               </button>
             </div>
-			<nav>			
-			<ul>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><input type="text" id="start" placeholder="Starting Location"></li>
+                <li><img src="Assets/img/to.png" class = "toImg"></li>
+                <li><input type="text" id="end" placeholder="Destination"></li>
+                <li><button type="button" onclick="calcRoute();">Search</button></li>
+              </ul>
+              <nav>         
+            <ul>
                 <li id="login">
                         <a id="login-trigger" href="#">
                                 Upload Photo 
@@ -45,15 +52,8 @@
                                 </form>
                         </div>
                 </li>
-			</ul>
-			</nav>
-            <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li><input type="text" id="start" placeholder="Starting Location"></li>
-                <li><img src="Assets/img/to.png" class = "toImg"></li>
-                <li><input type="text" id="end" placeholder="Destination"></li>
-                <li><button type="button" onclick="calcRoute();">Search</button></li>
-              </ul>
+            </ul>
+            </nav>
             </div><!--/.nav-collapse -->
           </div>
       </div>
