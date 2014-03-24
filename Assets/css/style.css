@@ -7,8 +7,26 @@
 	height: 30px;
 }
 
+
+.navbar-right {
+	float: left;
+	margin: 0;
+}
 #wrapper {
 	position: relative; 
+}
+
+#directions-panel {
+	position: absolute;
+	display: none;
+    top: 91px;
+    bottom: 60px;
+    right: 0;
+    float: right;
+    width: 390px;
+    overflow: auto;
+    background-color: #f2f2f2;
+    z-index: 89;
 }
 
 #legends {

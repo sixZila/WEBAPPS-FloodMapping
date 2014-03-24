@@ -6,7 +6,7 @@
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="Assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="Assets/css/style.css" rel="stylesheet">  
+        <link href="Assets/css/style.css" rel="stylesheet">
         <style type="text/css">
             body {
               padding-top: 50px;
@@ -31,17 +31,19 @@
                 <li><input type="text" id="end" placeholder="Destination"></li>
                 <li><button type="button" onclick="calcRoute();">Search</button></li>
               </ul>
+              <ul class="nav navbar-right">
+                <li><button type="button" onclick="toggleDrawer();" id="dPanel">Directions</button></li>
+            </ul>
             </div><!--/.nav-collapse -->
           </div>
       </div>
 
-<div id="legends">
-</div>
-<div id="map-canvas"/>
+    <div id="directions-panel">
+    </div>
 
-
-
-
+    <div id="legends">
+    </div>
+    <div id="map-canvas"/>
 
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBva4xAGdYL_-6mErjAjhZySvHxLpNVh6A&sensor=false&libraries=places">
@@ -51,16 +53,6 @@
         <script type='text/javascript' src="Assets/js/bootstrap.min.js"></script>
         <script type='text/javascript' src="Assets/script.js"></script>
         <!-- JavaScript jQuery code from Bootply.com editor -->
-        
-        <script type='text/javascript'>
-        
-        $(document).ready(function() {
-        
-            
-        
-        });
-        
-        </script>
         
     </body>
 </html>

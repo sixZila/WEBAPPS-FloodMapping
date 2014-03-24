@@ -12,6 +12,19 @@ var floods = [
   ['Pascor', 14.506841, 121.001141, '']
 ];
 
+var drawerIsOpen = false;
+ 
+function toggleDrawer() {
+	if(drawerIsOpen) {
+		drawerIsOpen = false;
+		$("#directions-panel").css("display", "none");
+	}
+	else {
+		drawerIsOpen = true;
+		$("#directions-panel").css("display", "inline");
+	}
+}	
+
 function initialize() {
 	directionsDisplay = new google.maps.DirectionsRenderer();
 	var mapOptions = {
@@ -29,6 +42,7 @@ function initialize() {
 	var autocompleteEnd = new google.maps.places.Autocomplete(destination);
 
 	directionsDisplay.setMap(map);
+	directionsDisplay.setPanel(document.getElementById('directions-panel'));
 	setMarkers(map, floods);
 	
 	var kmzLayer0 = new google.maps.KmlLayer({
