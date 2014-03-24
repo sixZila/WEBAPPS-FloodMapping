@@ -43,6 +43,7 @@ function initialize() {
 	var autocompleteEnd = new google.maps.places.Autocomplete(destination);
 
 	directionsDisplay.setMap(map);
+	directionsDisplay.setPanel(document.getElementById('directions-panel'));
 	setMarkers(map, floods);
 	
 	var kmzLayer0 = new google.maps.KmlLayer({
