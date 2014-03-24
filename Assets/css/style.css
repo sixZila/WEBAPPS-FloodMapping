@@ -1,6 +1,14 @@
+input {
+	width: 250px;
+}
+
 .navbar-container{ 
 	padding-left: 15px;
 	padding-right: 15px;
+}
+
+.searchDestination {
+	width: 80px;
 }
 
 .toImg{
