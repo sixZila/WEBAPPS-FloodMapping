@@ -4,25 +4,26 @@ var map;
 var markers = new Array();
 var infowindows = new Array();
 var floods = [
-  ['SM Sucat', 14.484768, 120.993840, '<h1>SM Sucat</h1> <a href="Assets/floodimg/SMSucat.jpg" data-lightbox="Assets/floodimg/SMSucat.jpg"><img src="Assets/floodimg/SMSucat.jpg" class="flood"></a>'],
+  ['SM Sucat', 14.484768, 120.993840, '<h3>SM Sucat</h3> Intensity: 3ft <a href="Assets/floodimg/SMSucat.jpg" data-lightbox="Assets/floodimg/SMSucat.jpg"><img src="Assets/floodimg/SMSucat.jpg" class="flood"></a>'],
   ['DLSU', 14.5643, 120.9937, ''],
   ['Vito Cruz', 14.562623, 120.995103, ''],
   ['Olivarez College', 14.479513, 120.997657, ''],
   ['Evacom', 14.475042, 121.001079, ''],
   ['Pascor', 14.506841, 121.001141, '']
 ];
-
+var kmlLayers;
+var kmlInit = false;
 var drawerIsOpen = false;
 var gotDirections = false;
  
 function toggleDrawer() {
 	if(!drawerIsOpen && gotDirections) {
 		drawerIsOpen = true;
-		$("#directions-panel").css("display", "inline");
+		$("#directions-panel").animate({marginRight: "0px"}, 400);
 	}
 	else {
 		drawerIsOpen = false;
-		$("#directions-panel").css("display", "none");
+		$("#directions-panel").animate({marginRight: "-390px"}, 400);
 	}
 }	
 
@@ -45,41 +46,51 @@ function initialize() {
 	directionsDisplay.setMap(map);
 	directionsDisplay.setPanel(document.getElementById('directions-panel'));
 	setMarkers(map, floods);
-	
-	var kmzLayer0 = new google.maps.KmlLayer({
+	kmlLayers = new Array();
+}
+
+function toggleLayers() {
+	if(kmlInit) {
+		for( var index = 0; index < kmlLayers.length; ++index){
+    		kmlLayers[index].setMap( kmlLayers[index].getMap() ? null : map );
+		}
+	}else {
+		kmlLayers[0] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/marikina-ondoy.KMZ"
-	});
-	kmzLayer0.setMap(map);
+		});
+		kmlLayers[0].setMap(map);
 	
-	var kmzLayer1 = new google.maps.KmlLayer({
+		kmlLayers[1] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila0-ondoy.KMZ"
-	});
-	kmzLayer1.setMap(map);
+		});
+		kmlLayers[1].setMap(map);
 	
-	var kmzLayer2 = new google.maps.KmlLayer({
+		kmlLayers[2] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila1-ondoy.KMZ",
-	});
-	kmzLayer2.setMap(map);
+		});
+		kmlLayers[2].setMap(map);
 	
-	var kmzLayer3 = new google.maps.KmlLayer({
+		kmlLayers[3] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila2-ondoy.KMZ",
-	});
-	kmzLayer3.setMap(map);
+		});
+		kmlLayers[3].setMap(map);
 	
-	var kmzLayer4 = new google.maps.KmlLayer({
+		kmlLayers[4] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila3-ondoy.KMZ",
-	});
-	kmzLayer4.setMap(map);
+		});
+		kmlLayers[4].setMap(map);
 	
-	var kmzLayer5 = new google.maps.KmlLayer({
+		kmlLayers[5] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila4-ondoy.KMZ",
-	});
-	kmzLayer5.setMap(map);
+		});
+		kmlLayers[5].setMap(map);
 	
-	var kmzLayer6 = new google.maps.KmlLayer({
+		kmlLayers[6] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila_gm.KMZ"
-	});
-	kmzLayer6.setMap(map);
+		});
+		kmlLayers[6].setMap(map);
+		kmlInit = true;
+	}
 }
 
 function calcRoute() {
@@ -98,7 +109,7 @@ function calcRoute() {
 	});
 
 	gotDirections = true;
-	if (window.innerWidth > 767)
+	if (window.innerWidth > 767 && !drawerIsOpen)
 		toggleDrawer();
 }
 
@@ -120,7 +131,6 @@ function setMarkers(map, locations) {
 		
 		var infowindow = new google.maps.InfoWindow({
 			content: flood[3],
-			maxWidth: 200
 		});
 
 		google.maps.event.addListener(marker, 'click', function(event) {  
