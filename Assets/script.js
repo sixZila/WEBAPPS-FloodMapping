@@ -19,11 +19,18 @@ var gotDirections = false;
 function toggleDrawer() {
 	if(!drawerIsOpen && gotDirections) {
 		drawerIsOpen = true;
-		$("#directions-panel").animate({marginRight: "0px"}, 400);
+		$("#directions-panel").animate({marginRight: "0px"}, 250);
+		$("#directions-button").animate({marginRight: "390px"}, 250);
+		$("#directions-panel").css({display: "inline"});
 	}
 	else {
 		drawerIsOpen = false;
-		$("#directions-panel").animate({marginRight: "-390px"}, 400);
+		$("#directions-panel").animate({marginRight: "-390px"}, 250);
+		$("#directions-button").animate({marginRight: "0px"}, 250);
+
+		setTimeout( function(){
+      	$("#directions-panel").css('display','none');
+    	},250);
 	}
 }	
 
@@ -125,7 +132,7 @@ function setMarkers(map, locations) {
 			position: coords,
 			icon: image,
 			map: map,
-			title: flood[0],
+			title: flood[0], //
 			infoWindowIndex: i
 		});
 		
