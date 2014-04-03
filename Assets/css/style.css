@@ -24,6 +24,13 @@ body {
 	height: auto
 }
 
+.logo {
+	margin-left: auto;
+	margin: ;
+	height: 25px;
+	width: auto;
+}
+
 .navbar-right {
 	float: right;
 	margin: 0;
@@ -101,6 +108,9 @@ body {
 		width: 100%;
 		font-size: 24;
 	}
+	.logo {
+		display: none;
+	}
 	input {
 		font-size: 36;
 		width: 100%;
@@ -108,4 +118,5 @@ body {
 	#directions-panel {
 		display: none;
 	}
+
 }
