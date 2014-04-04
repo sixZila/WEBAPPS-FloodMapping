@@ -49,11 +49,11 @@
                         <li id="login">
                             <a id="login-trigger" href="#">Upload Photo </a>
                             <div id="login-content">
-                                <form method = "post" enctype = "multipart/form-data" target = "_self">
+                                <form action = "dao.php" method = "post" enctype = "multipart/form-data" target = "_self">
                                     <fieldset id="inputs">
-                                        <input id="username" type="text" name="address" placeholder="Location" required>
+                                        <input id="username" type="text" name="location" placeholder="Location" required>
                                         <input id="password" type="number" name="level" placeholder="Intensity" required>
-										<input type = "file" name = "image" id = "image" required>
+										<input id = "image" type = "file" name = "image"  required>
                                     </fieldset>
                                     <fieldset id="actions">
                                         <input type="submit" id="submit" value="Upload">            

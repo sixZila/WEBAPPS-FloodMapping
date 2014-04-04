@@ -10,26 +10,36 @@ function connecToDatabase(){
 	$database = "flood_reports";
 	
 	mysql_connect("$host", "$username", "$password") or die(mysql_error());
-	echo "connected";
 
 	mysql_select_db("$database") or die(mysql_error());
-	echo "database found";
 }
 
 function addEntry(){
 
 global $table, $longitude, $latitude;
-connecToDatabase();
 translateAddress();
+connecToDatabase();
 
 $level = $_POST['level'];
-$image = mysql_real_escape_string(file_get_contents($_FILES["image"]["tmp_name"]));
+$location = $_POST['location'];
+$date = date('Y-m-d H:i:s');
 
-$sql = "INSERT INTO $table(longitude, latitude, level, image) VALUES($longitude, $latitude, $level, '$image')";
+if (file_exists("Assets/floodImages/" . $_FILES["image"]["name"])){
 
-mysql_query("$sql") or die(mysql_error());
-echo "data inserted";
+   echo $_FILES["image"]["name"] . " already exists. ";
 
+}
+else{
+
+    $file = $_FILES["image"]["name"];
+    $filePath = "Assets/floodImages/" . $file;
+    if(move_uploaded_file($_FILES["image"]["tmp_name"], $filePath)){
+
+		$sql = "INSERT INTO $table(location, image_dir, longitude, latitude, level, upload_time) VALUES('$location', '$filePath', $longitude, $latitude, $level, '$date')";
+        mysql_query("$sql") or die(mysql_error());
+    }
+	
+}
 mysql_close();
 }
 
@@ -37,7 +47,7 @@ function translateAddress(){
 
 global $longitude, $latitude;
 
-$address = $_POST['address'];
+$address = $_POST['location'];
  
 $address = str_replace(" ", "+", $address);
  
