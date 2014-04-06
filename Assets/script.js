@@ -63,37 +63,44 @@ function toggleLayers() {
 		}
 	}else {
 		kmlLayers[0] = new google.maps.KmlLayer({
-			url: "http://nababaha.appspot.com/static/marikina-ondoy.KMZ"
+			url: "http://nababaha.appspot.com/static/marikina-ondoy.KMZ",
+			preserveViewport: true
 		});
 		kmlLayers[0].setMap(map);
 	
 		kmlLayers[1] = new google.maps.KmlLayer({
-			url: "http://nababaha.appspot.com/static/manila0-ondoy.KMZ"
+			url: "http://nababaha.appspot.com/static/manila0-ondoy.KMZ",
+			preserveViewport: true
 		});
 		kmlLayers[1].setMap(map);
 	
 		kmlLayers[2] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila1-ondoy.KMZ",
+			preserveViewport: true
 		});
 		kmlLayers[2].setMap(map);
 	
 		kmlLayers[3] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila2-ondoy.KMZ",
+			preserveViewport: true
 		});
 		kmlLayers[3].setMap(map);
 	
 		kmlLayers[4] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila3-ondoy.KMZ",
+			preserveViewport: true
 		});
 		kmlLayers[4].setMap(map);
 	
 		kmlLayers[5] = new google.maps.KmlLayer({
 			url: "http://nababaha.appspot.com/static/manila4-ondoy.KMZ",
+			preserveViewport: true
 		});
 		kmlLayers[5].setMap(map);
 	
 		kmlLayers[6] = new google.maps.KmlLayer({
-			url: "http://nababaha.appspot.com/static/manila_gm.KMZ"
+			url: "http://nababaha.appspot.com/static/manila_gm.KMZ",
+			preserveViewport: true
 		});
 		kmlLayers[6].setMap(map);
 		kmlInit = true;
