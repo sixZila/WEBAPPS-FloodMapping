@@ -4,7 +4,7 @@ var map;
 var markers = new Array();
 var infowindows = new Array();
 var floods = [
-  ['SM Sucat', 14.484768, 120.993840, '<h3>SM Sucat</h3> Intensity: 3ft <a href="Assets/floodimg/SMSucat.jpg" data-lightbox="Assets/floodimg/SMSucat.jpg"><img src="Assets/floodimg/SMSucat.jpg" class="flood"></a>'],
+  ['SM Sucat', 14.484768, 120.993840, '<h3>SM Sucat</h3> Intensity: 3ft <a href="Assets/floodImages/SMSucat.jpg" data-lightbox="Assets/floodImages/SMSucat.jpg"><img src="Assets/floodImages/SMSucat.jpg" class="flood"></a>'],
   ['DLSU', 14.5643, 120.9937, ''],
   ['Vito Cruz', 14.562623, 120.995103, ''],
   ['Olivarez College', 14.479513, 120.997657, ''],
@@ -19,17 +19,22 @@ var gotDirections = false;
 function toggleDrawer() {
 	if(!drawerIsOpen && gotDirections) {
 		drawerIsOpen = true;
+		$("#directions-panel").css({display: "inline"});
 		$("#directions-panel").animate({marginRight: "0px"}, 250);
 		$("#directions-button").animate({marginRight: "390px"}, 250);
-		$("#directions-panel").css({display: "inline"});
+		$("#directions-button").css({display: "inline"});
+		setTimeout( function() {
+		document.getElementById('push-pull').src = "Assets/img/push.png";
+    	},250);
 	}
 	else {
 		drawerIsOpen = false;
 		$("#directions-panel").animate({marginRight: "-390px"}, 250);
 		$("#directions-button").animate({marginRight: "0px"}, 250);
 
-		setTimeout( function(){
+		setTimeout( function() {
       	$("#directions-panel").css('display','none');
+		document.getElementById('push-pull').src = "Assets/img/pull.png";
     	},250);
 	}
 }	
@@ -44,15 +49,17 @@ function initialize() {
 	};
 	var start = /** @type {HTMLInputElement} */(document.getElementById('start'));
 	var destination = /** @type {HTMLInputElement} */(document.getElementById('end'));
+	var location = /** @type {HTMLInputElement} */(document.getElementById('username'));
 
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 	
 	var autocompleteStart = new google.maps.places.Autocomplete(start);
 	var autocompleteEnd = new google.maps.places.Autocomplete(destination);
+	var autocompleteLocation = new google.maps.places.Autocomplete(location);
 
 	directionsDisplay.setMap(map);
 	directionsDisplay.setPanel(document.getElementById('directions-panel'));
-	setMarkers(map, floods);
+	setMarkers(map);
 	kmlLayers = new Array();
 }
 
@@ -127,34 +134,69 @@ function calcRoute() {
 		toggleDrawer();
 }
 
-function setMarkers(map, locations) {
-	var image = {
-		url: 'Assets/img/FloodHigh.png'
-	}
-
-	for (var i = 0; i < locations.length; i++) {
-		var flood = locations[i];
-		var coords = new google.maps.LatLng(flood[1], flood[2]);
-		var marker = new google.maps.Marker({
-			position: coords,
-			icon: image,
-			map: map,
-			title: flood[0], //
-			infoWindowIndex: i
-		});
-		
-		var infowindow = new google.maps.InfoWindow({
-			content: flood[3],
-		});
-
-		google.maps.event.addListener(marker, 'click', function(event) {  
-			infowindows[this.infoWindowIndex].open(map, this);
-        });
-		
-		infowindows.push(infowindow);
-        markers.push(marker);
-	}
+function setMarkers(map) {
+	var infoWindow = new google.maps.InfoWindow;
+	
+      downloadUrl("outputXml.php", function(data) {
+        var xml = data.responseXML;
+        var markers = xml.documentElement.getElementsByTagName("marker");
+        for (var i = 0; i < markers.length; i++) {
+          var address = markers[i].getAttribute("location");
+		  var flood = markers[i].getAttribute("image_dir");
+		  var level = markers[i].getAttribute("level");
+          var point = new google.maps.LatLng(
+              parseFloat(markers[i].getAttribute("lat")),
+              parseFloat(markers[i].getAttribute("lng")));
+          var html = "<b>Location: </b>" + address + "<br/> <a href=\"" + flood + "\" data-lightbox=\"" + flood + "\"><img src=\"" + flood + "\" class=\"flood\"></a><br /><b>Level: </b>" + level + " feet";
+		  
+		  if(level < 2) {
+		  var image = {
+				url: 'Assets/img/FloodLow.png'
+			}}
+			else if(level < 4) {
+			var image = {
+				url: 'Assets/img/FloodMed.png'
+			}
+			} else {
+			var image = {
+				url: 'Assets/img/FloodHigh.png'
+			}
+			}
+          var marker = new google.maps.Marker({
+            map: map,
+			icon:image,
+            position: point
+          });
+          bindInfoWindow(marker, map, infoWindow, html);
+        }
+      });
 }
+
+	function bindInfoWindow(marker, map, infoWindow, html) {
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.setContent(html);
+        infoWindow.open(map, marker);
+      });
+    }
+
+    function downloadUrl(url, callback) {
+      var request = window.ActiveXObject ?
+          new ActiveXObject('Microsoft.XMLHTTP') :
+          new XMLHttpRequest;
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          request.onreadystatechange = doNothing;
+          callback(request, request.status);
+        }
+      };
+
+      request.open('GET', url, true);
+      request.send(null);
+    }
+
+    function doNothing() {}
+    
 
 google.maps.event.addDomListener(window, 'load', initialize);
 

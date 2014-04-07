@@ -8,6 +8,12 @@ body, h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 }
 
+.small-img {
+	height: 20px;
+	width: auto;
+	float: left;
+}
+
 .callout {
   color: #ffffff;
   padding-top:1%;

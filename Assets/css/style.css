@@ -16,8 +16,12 @@ body {
 	width: 80px;
 }
 
-.toImg{
-	height: 30px;
+.to {
+	height: 26px;
+    line-height: 20px;
+	font-weight: bold;
+	padding: 2px 10px 0px;
+	color: #fff;
 }
 
 .flood {
@@ -26,8 +30,7 @@ body {
 }
 
 .logo {
-	margin-left: auto;
-	margin: ;
+	padding-right: 10px;
 	height: 25px;
 	width: auto;
 }
@@ -40,17 +43,26 @@ body {
 }
 
 .nav-button {
-	display: inline-block;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
   height: 25px;
   line-height: 25px;
   font-weight: bold;
   padding: 0 8px;
   text-decoration: none;
-  color: #444;
-  text-shadow: 0 1px 0 #fff;
+  color: #FFF;
+}
+
+.nav-button:hover {
+  font-weight: bold;
+  padding: 0 8px;
+  text-decoration: none;
+  color: #FFF;
 }
 
 #directions-button {
+	display: none;
 	position: absolute;
 	z-index: 89;
 	right: 0;
@@ -97,17 +109,15 @@ body {
 #map-canvas {
 	position: absolute;
 	width: 100%;
-	top: 31px;
+	top: 26px;
 	bottom: 0;
 }
-
-
 
 @media (max-width: 767px) {
 	#map-canvas {
 		display: none;
 	}
-	.toImg{
+	.to{
 		display: none;
 	}
 	.searchDestination {
