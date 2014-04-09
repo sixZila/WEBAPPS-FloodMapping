@@ -12,11 +12,6 @@
 		<link href="Assets/dropdown.css" rel="stylesheet" type="text/css" media="all" />
         <link href="Assets/lightbox.css" rel="stylesheet" />
         
-		<style type="text/css">
-            body {
-              padding-top: 50px;
-            }
-        </style>
     </head>
 
     <body  >
@@ -24,29 +19,28 @@
           <div class="navbar-container">
 
                 <ul class="nav navbar-nav">
+					<li><img src="Assets/img/mainlogo.png" class="logo"> </li>
                     <li><input type="text" id="start" placeholder="Starting Location"></li>
-                    <li><img src="Assets/img/to.png" class = "toImg"></li>
+                    <li><div class="to">TO</div></li>
                     <li><input type="text" id="end" placeholder="Destination"></li>
                     <li><button type="button" onclick="calcRoute();" class="searchDestination">Search</button></li>
                 </ul>
 
-                <img src="Assets/img/logo.jpg" class="logo" align="middle">
-
                 <div class="navbar-right">
                     <nav>         
                         <ul>
-                            <li id="login"><a class="nav-button" href="WebApps-Landing Page/index.html" target = "_blank">About</a></li>
+                            <li id="login"><a class="nav-button" href="WebApps-Landing Page/index.html">About</a></li>
                         </ul>
                     </nav>
                     <nav>         
                         <ul>
                             <li id="login">
-                                <a id="login-trigger" href="#">Upload Photo </a>
+                                <a id="login-trigger" href="#">Report Flood</a>
                                 <div id="login-content">
                                     <form action = "dao.php" method = "post" enctype = "multipart/form-data" target = "_self">
                                         <fieldset id="inputs">
                                             <input id="username" type="text" name="location" placeholder="Location" required>
-                                            <input id="password" type="number" name="level" placeholder="Intensity" required>
+                                            <input id="password" type="number" name="level" placeholder="Flood Height (feet)" required>
     										<input id = "image" type = "file" name = "image"  required>
                                         </fieldset>
                                         <fieldset id="actions">
@@ -60,7 +54,7 @@
 
                     <nav>         
                         <ul>
-                            <li id="login"><a class="nav-button" href="javascript:toggleLayers()">Flood Map</a></li>
+                            <li id="login"><a class="nav-button" href="javascript:toggleLayers()">Flood Prone Areas</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -68,7 +62,7 @@
         </div>
 
         <div id="map">
-            <a href="javascript:toggleDrawer()" id="directions-button"><img src="Assets/img/pull.png"></a>
+            <a href="javascript:toggleDrawer();" id="directions-button"><img src="Assets/img/pull.png" id="push-pull"></a>
 
             <div id="directions-panel">
             </div>

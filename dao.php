@@ -41,6 +41,8 @@ else{
 	
 }
 mysql_close();
+header("Location: bIndex.html");
+die();
 }
 
 function translateAddress(){
