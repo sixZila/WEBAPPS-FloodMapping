@@ -1,0 +1,1 @@
+The other portfolio I made is much better :( but it wansn't one page :(
